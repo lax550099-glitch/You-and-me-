@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +9,11 @@
 <style>
 body{
   margin:0;
-  background:#111;
+  background:#1e1e1e;
   color:#f2f2f2;
   font-family:'Segoe UI',sans-serif;
   overflow:hidden;
 }
-
-/* subtle stars */
 .star{
   position:fixed;
   background:white;
@@ -22,12 +21,7 @@ body{
   opacity:.4;
   animation:twinkle 3s infinite alternate;
 }
-@keyframes twinkle{
-  from{opacity:.2}
-  to{opacity:.6}
-}
-
-/* screens */
+@keyframes twinkle{from{opacity:.2}to{opacity:.6}}
 .screen{
   position:absolute;
   inset:0;
@@ -38,57 +32,34 @@ body{
   text-align:center;
 }
 .hidden{display:none;}
-
 img{
-  width:200px;
-  height:200px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid #ccc;
-  box-shadow:0 0 12px rgba(255,255,255,.4);
-  margin-bottom:16px;
+  width:190px;height:190px;border-radius:50%;
+  object-fit:cover;border:2px solid #ddd;
+  box-shadow:0 0 14px rgba(255,255,255,.4);
+  margin-bottom:14px;
 }
-
+.intro-text{font-size:18px;margin-bottom:18px;}
 button{
-  padding:12px 26px;
-  font-size:18px;
-  border:none;
-  border-radius:26px;
-  cursor:pointer;
-  margin-top:16px;
-  background:#f2f2f2;
-  color:#111;
+  padding:12px 32px;font-size:18px;
+  border:none;border-radius:26px;
+  cursor:pointer;background:#f2f2f2;color:#111;
 }
-
-/* story box */
 .box{
-  width:90%;
-  max-width:780px;
-  height:65vh;
-  overflow-y:auto;
-  background:rgba(20,20,20,.9);
-  border-radius:16px;
-  padding:22px;
+  width:90%;max-width:760px;height:65vh;
+  overflow-y:auto;background:rgba(25,25,25,.95);
+  border-radius:16px;padding:22px;
 }
-
-/* lines */
 .line{
-  font-size:18px;
-  line-height:1.5;
-  margin-bottom:10px;
-  opacity:0;
-  animation:fadeIn 0.8s forwards;
+  font-size:18px;line-height:1.7;
+  margin-bottom:12px;opacity:0;
+  animation:fadeIn .8s forwards;
 }
-
 @keyframes fadeIn{
-  from{opacity:0; transform:translateY(6px);}
-  to{opacity:1; transform:translateY(0);}
+  from{opacity:0;transform:translateY(6px);}
+  to{opacity:1;transform:translateY(0);}
 }
-
-/* hearts */
 .heart{
-  position:fixed;
-  font-size:22px;
+  position:fixed;font-size:22px;
   animation:explode 2.2s linear forwards;
 }
 @keyframes explode{
@@ -106,7 +77,6 @@ button{
 
 <body>
 
-<!-- stars -->
 <script>
 for(let i=0;i<80;i++){
   let s=document.createElement("div");
@@ -118,7 +88,94 @@ for(let i=0;i<80;i++){
 }
 </script>
 
-<!-- intro -->
 <div class="screen" id="intro">
   <img src="kruthik.jpg">
-  <h2>Valentine’s
+  <div class="intro-text">
+    Heyy Doctor…<br>
+    down YES press cheyyi 🥹💖
+  </div>
+  <button onclick="start()">YES ❤️</button>
+</div>
+
+<div class="screen hidden" id="storyScreen">
+  <div class="box" id="story"></div>
+  <button onclick="showFinal()">YES ❤️</button>
+</div>
+
+<div class="screen hidden" id="final">
+  <h2>I love you ❤️</h2>
+  <p>Forever yours,<br>Nana 🫂</p>
+</div>
+
+<script>
+const lines=[
+"Hey my love 🥰",
+"It’s incredible to think how our journey began on Snapchat,",
+"and now we are almost a year together in this beautiful virtual love story.",
+"Every chat, every silly snap, every small moment we shared,",
+"filled my heart with so much happiness and warmth.",
+"Even though we haven’t met yet,",
+"it feels like I’ve known you forever.",
+"You are my safe place, my dream, my everything ❤️",
+"Every time you call me ‘nana’, my heart smiles.",
+"I love you so much, Kruthik ❤️",
+"",
+"Hmm… mana video call gurthundha?",
+"Not about xxxxx sirrr 😌",
+"Ante nenu kopam ga unnappudu,",
+"nuvvu vachi “sorry” cheppavu kada…",
+"nee sorry entha cute ga undho telusa 🥹",
+"",
+"Nuvu lekunda life imagine cheyalenu.",
+"Nanu vadileyaku 🥹",
+"Nuvu naa husband.",
+"You belong to me, not for others 😠💋🥺",
+"",
+"Mana valentine ila jarguthundi ani em feel kaku.",
+"Manam kaludham okay.",
+"Chana ante chana undiiii chepeki chudu.",
+"Netho chala matladali, hug cheyali,",
+"naa emotions share cheskovali chana undi.",
+"Kani bayam… nuvu yakada dani kuda serious ga tiskovu ani,",
+"because many times ala happend with you.",
+"Chana anta chana undi.",
+"I hope inka after this nuvu natho time spend chestavu,",
+"manchiga matladutavu ani ankoni unna.",
+"Netho nen em expect chesta le Kruthik.",
+"Just nenu nee care, love, time ivvu.",
+"Intha chalu… happy ga brathukesta jeevitham motham 🥹",
+"",
+"Forever yours… Nana ❤️"
+];
+
+function start(){
+  intro.classList.add("hidden");
+  storyScreen.classList.remove("hidden");
+  lines.forEach((t,i)=>{
+    let p=document.createElement("div");
+    p.className="line";
+    p.style.animationDelay=(i*1.2)+"s";
+    p.innerText=t;
+    story.appendChild(p);
+  });
+}
+
+function showFinal(){
+  storyScreen.classList.add("hidden");
+  final.classList.remove("hidden");
+  for(let i=0;i<22;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left="50vw";
+    h.style.top="50vh";
+    h.style.setProperty("--x",Math.random());
+    h.style.setProperty("--y",Math.random());
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),2200);
+  }
+}
+</script>
+
+</body>
+</html>
