@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Kruthik ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  background:#111;
+  color:#f2f2f2;
+  font-family:'Segoe UI',sans-serif;
+  overflow:hidden;
+}
+
+/* subtle stars */
+.star{
+  position:fixed;
+  background:white;
+  border-radius:50%;
+  opacity:.4;
+  animation:twinkle 3s infinite alternate;
+}
+@keyframes twinkle{
+  from{opacity:.2}
+  to{opacity:.6}
+}
+
+/* screens */
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.hidden{display:none;}
+
+img{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #ccc;
+  box-shadow:0 0 12px rgba(255,255,255,.4);
+  margin-bottom:16px;
+}
+
+button{
+  padding:12px 26px;
+  font-size:18px;
+  border:none;
+  border-radius:26px;
+  cursor:pointer;
+  margin-top:16px;
+  background:#f2f2f2;
+  color:#111;
+}
+
+/* story box */
+.box{
+  width:90%;
+  max-width:780px;
+  height:65vh;
+  overflow-y:auto;
+  background:rgba(20,20,20,.9);
+  border-radius:16px;
+  padding:22px;
+}
+
+/* lines */
+.line{
+  font-size:18px;
+  line-height:1.5;
+  margin-bottom:10px;
+  opacity:0;
+  animation:fadeIn 0.8s forwards;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(6px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* hearts */
+.heart{
+  position:fixed;
+  font-size:22px;
+  animation:explode 2.2s linear forwards;
+}
+@keyframes explode{
+  from{opacity:1;}
+  to{
+    opacity:0;
+    transform:translate(
+      calc(-120px + 240px * var(--x)),
+      calc(-120px + 240px * var(--y))
+    );
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- stars -->
+<script>
+for(let i=0;i<80;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.width=s.style.height=(Math.random()*2+1)+"px";
+  s.style.top=Math.random()*100+"vh";
+  s.style.left=Math.random()*100+"vw";
+  document.body.appendChild(s);
+}
+</script>
+
+<!-- intro -->
+<div class="screen" id="intro">
+  <img src="kruthik.jpg">
+  <h2>Valentine’s
